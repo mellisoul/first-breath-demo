@@ -296,11 +296,15 @@ button { font: inherit; cursor: pointer; color: inherit; }
 
 .note { max-width: 860px; margin: 24px auto 0; font-size: 13.5px; color: var(--ink-2); text-align: center; }
 
-.team { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); border-top: 2px solid var(--ink); }
-.team li { padding: 18px 16px 0 0; }
-.team li + li { padding-left: 16px; border-left: 1px solid var(--rule); }
-.team b { display: block; font-weight: 600; font-size: 17px; }
+.team { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; }
+.team li { display: flex; flex-direction: column; }
+.ph-wrap { position: relative; aspect-ratio: 4 / 5; border-radius: var(--r); overflow: hidden; background: #C7D4DF; margin-bottom: 14px; }
+.ph-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.08) brightness(1.04); mix-blend-mode: multiply; transition: filter .45s ease, transform .6s ease; }
+.ph-wrap::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(24, 34, 45, .08); border-radius: inherit; pointer-events: none; }
+.team li:hover .ph-wrap img, .team li:focus-within .ph-wrap img { filter: none; mix-blend-mode: normal; transform: scale(1.03); }
+.team b { display: block; font-weight: 600; font-size: 17px; line-height: 1.3; }
 .team span { font-size: 15px; color: var(--ink-2); }
+.team li:first-child span { color: var(--brand); font-weight: 500; }
 
 .foot { background: var(--night); color: #8FA2B2; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 28px max(20px, calc((100vw - 1200px) / 2)); font-size: 14px; }
 .foot span:first-child { color: #fff; font-weight: 600; }
@@ -316,8 +320,7 @@ button { font: inherit; cursor: pointer; color: inherit; }
   .links { display: none; }
   .flow { grid-template-columns: 1fr 1fr; row-gap: 32px; }
   .flow li::after { display: none; }
-  .team { grid-template-columns: repeat(3, 1fr); row-gap: 20px; }
-  .team li:nth-child(4) { padding-left: 0; border-left: 0; }
+  .team { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 28px; }
 }
 
 @media (max-width: 640px) {
@@ -353,9 +356,9 @@ button { font: inherit; cursor: pointer; color: inherit; }
   .sheet-kpi div:nth-child(3) { padding-left: 0; border-left: 0; }
   .sheet-kpi div:nth-child(n+3) { border-top: 1px solid var(--rule-2); }
   .tbl { font-size: 13.5px; }
-  .team { grid-template-columns: 1fr 1fr; }
-  .team li:nth-child(odd) { padding-left: 0; border-left: 0; }
-  .team li:nth-child(4) { padding-left: 16px; border-left: 1px solid var(--rule); }
+  .team { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 14px; }
+  .team b { font-size: 15.5px; }
+  .team span { font-size: 14px; }
   .actions.two { grid-template-columns: 1fr; }
   .nav { gap: 16px; }
 }
