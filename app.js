@@ -217,6 +217,7 @@
     setHint('calibrating', true);
     show('session');
     scrollToApp();
+    lastFrame = 0;
     r.t0 = performance.now() + 3000;
     r.raf = requestAnimationFrame(tick);
   }
@@ -252,11 +253,14 @@
       r.nextT += 1 / FS;
     }
 
+    const dt = lastFrame ? (now - lastFrame) / 1000 : 0;
+    lastFrame = now;
+    const lv = r.an.level.length ? r.an.level[r.an.level.length - 1] : 0;
     const cnt = $('#count');
     if (tSec < 0) {
       cnt.hidden = false;
       cnt.textContent = String(Math.ceil(-tSec));
-      drawLungs(0, 0);
+      drawLungs(0, 0, dt, lv);
       $('#phaseText').textContent = '';
       $('#phaseCount').textContent = '';
       drawWave(r);
@@ -271,7 +275,7 @@
       tone(p.kind);
     }
     const b = p.kind === 'inhale' ? ease(p.prog) : p.kind === 'hold' ? 1 : 1 - ease(p.prog);
-    drawLungs(b, p.prog);
+    drawLungs(b, p.prog, dt, lv);
     $('#phaseText').textContent = t(p.kind);
     $('#phaseCount').textContent = Math.ceil(p.remain);
     $('#hear').classList.toggle('on', r.an.active);
@@ -292,9 +296,14 @@
     r.raf = requestAnimationFrame(tick);
   }
 
-  function drawLungs(b, prog) {
-    $('#sLungs').style.setProperty('--b', b.toFixed(3));
+  function drawLungs(b, prog, dt, lv) {
+    if (vizS) vizS.frame(b, dt || 0, r_level(lv));
     $('#ring').style.strokeDashoffset = (RING * (1 - prog)).toFixed(1);
+  }
+
+  function r_level(lv) {
+    if (run && run.sim) return 0.7;
+    return Math.max(0.15, Math.min(1, lv === undefined ? 0.5 : lv));
   }
 
   function account(r, ts, active) {
@@ -673,7 +682,12 @@
       return c < 4 ? ease(c / 4) : 1 - ease((c - 4) / 6);
     };
     const span = 30;
+    const lc = $('#heroLungs');
+    if (lc && typeof LungsViz !== 'undefined') vizH = new LungsViz(lc, { particles: 80 });
+    let prev = 0;
     const draw = (now) => {
+      const hdt = prev ? (now - prev) / 1000 : 0;
+      prev = now;
       const dpr = window.devicePixelRatio || 1;
       const w = Math.round(cv.clientWidth * dpr);
       const h = Math.round(cv.clientHeight * dpr);
@@ -711,14 +725,19 @@
       g.stroke();
       const c = ((tNow % 10) + 10) % 10;
       if (ph) ph.textContent = c < 4 ? t('inhale') : t('exhale');
+      if (vizH && lc.offsetParent !== null) vizH.frame(hv, reduce ? 0 : hdt, 0.75);
       if (!reduce) requestAnimationFrame(draw);
     };
     requestAnimationFrame(draw);
   }
 
+  let vizS = null;
+  let vizH = null;
+  let lastFrame = 0;
+
   function inlineLungs() {
-    const tpl = document.getElementById('lungsTpl');
-    if (tpl) $('#sLungs').innerHTML = tpl.content.querySelector('svg').innerHTML;
+    vizS = new LungsViz($('#sLungs'), { particles: 110 });
+    vizS.frame(0, 0, 0.5);
   }
 
   function init() {

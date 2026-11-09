@@ -13,14 +13,6 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2316212D'/%3E%3Cpath d='M6 36 C14 36 16 20 24 20 S34 46 42 46 S52 30 58 30' fill='none' stroke='%239FD3CF' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
 </head>
 <body>
-<template id="lungsTpl"><svg xmlns="http://www.w3.org/2000/svg">
-  <g class="lobes">
-    <path class="lobe" d="M165 150 C110 160 70 230 62 320 C58 390 80 440 140 450 C175 455 190 430 192 400 L192 210 C192 180 185 155 165 150 Z"/>
-    <path class="lobe" d="M235 150 C290 160 330 230 338 320 C342 390 320 440 260 450 C225 455 208 430 208 400 L208 210 C208 180 215 155 235 150 Z"/>
-    <path class="tree" d="M146 206 C130 222 116 236 104 254 M146 206 C146 230 142 250 134 270 M104 254 C92 262 84 274 80 290 M104 254 C108 270 104 284 98 298 M134 270 C124 282 120 296 120 312 M134 270 C142 286 144 302 140 318 M254 206 C270 222 284 236 296 254 M254 206 C254 230 258 250 266 270 M296 254 C308 262 316 274 320 290 M296 254 C292 270 296 284 302 298 M266 270 C276 282 280 296 280 312 M266 270 C258 286 256 302 260 318"/>
-  </g>
-  <path class="airway" d="M193 30 L193 158 C183 172 168 186 146 206 M207 30 L207 158 C217 172 232 186 254 206"/>
-</svg></template>
 
 <header class="nav">
   <a class="brand" href="#top" aria-label="First Breath">
@@ -56,6 +48,7 @@
           <span class="mon-ex" data-i18n="ex_diaphragm"></span>
         </div>
         <div class="mon-body">
+          <canvas class="hero-lungs" id="heroLungs" width="400" height="470" aria-hidden="true"></canvas>
           <canvas id="heroTrace" width="1200" height="360"></canvas>
           <dl class="mon-read">
             <div><dt data-i18n="readRate"></dt><dd><b>6</b><small>/мин</small></dd></div>
@@ -170,7 +163,7 @@
                 <circle cx="150" cy="150" r="140" class="ring-bg"/>
                 <circle cx="150" cy="150" r="140" class="ring-fg" id="ring"/>
               </svg>
-              <svg class="lungs" id="sLungs" viewBox="0 0 400 470" aria-hidden="true"></svg>
+              <canvas class="lungs" id="sLungs" width="400" height="470" aria-hidden="true"></canvas>
               <div class="count" id="count" hidden></div>
               <div class="phase"><strong id="phaseText"></strong><span id="phaseCount"></span></div>
             </div>
@@ -280,6 +273,7 @@
 <div class="toast" id="toast" role="status"></div>
 <script src="i18n.js"></script>
 <script src="breath.js"></script>
+<script src="lungs.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
