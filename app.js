@@ -100,19 +100,22 @@
   }
 
   function updateBorg() {
-    $('#borgPreLab').innerHTML = borgText($('#borgPre').value);
-    $('#borgPostLab').innerHTML = borgText($('#borgPost').value);
+    ['Pre', 'Post'].forEach((k) => {
+      const inp = $('#borg' + k);
+      $('#borg' + k + 'Lab').innerHTML = borgText(inp.value);
+      inp.style.setProperty('--fill', (Number(inp.value) * 10) + '%');
+    });
   }
 
   function show(id) {
-    $$('.device .screen').forEach((s) => s.classList.toggle('active', s.id === id));
+    $$('.work .screen').forEach((s) => s.classList.toggle('active', s.id === id));
     $$('.tab-btn').forEach((b) => b.classList.toggle('on', b.dataset.go === id || (b.dataset.go === 'setup' && ['session', 'post', 'summary'].includes(id))));
     if (id === 'report') renderReport();
     if (id === 'setup') renderWeek();
   }
 
   function scrollToApp() {
-    const top = $('#app').getBoundingClientRect().top + window.scrollY - 70;
+    const top = $('#app').getBoundingClientRect().top + window.scrollY - 64;
     if (Math.abs(window.scrollY - top) > 40) window.scrollTo({ top, behavior: 'smooth' });
   }
 
@@ -374,7 +377,7 @@
     const pad = 8 * dpr;
     const y = (v) => h - pad - 0.85 * v * (h - 2 * pad);
 
-    g.fillStyle = 'rgba(255,210,184,0.16)';
+    g.fillStyle = 'rgba(159,211,207,0.10)';
     for (let i = 0; i < n; i++) {
       if (ac[start + i]) g.fillRect(x0 + i * dx - dx / 2, 0, dx + 0.5, h);
     }
@@ -384,7 +387,7 @@
     for (let i = 0; i < n; i++) g.lineTo(x0 + i * dx, y(lv[start + i]));
     g.lineTo(x0 + (n - 1) * dx, h);
     g.closePath();
-    g.fillStyle = 'rgba(243,233,210,0.2)';
+    g.fillStyle = 'rgba(159,211,207,0.12)';
     g.fill();
     g.beginPath();
     for (let i = 0; i < n; i++) {
@@ -392,8 +395,8 @@
       const yy = y(lv[start + i]);
       if (i === 0) g.moveTo(xx, yy); else g.lineTo(xx, yy);
     }
-    g.strokeStyle = '#F3E9D2';
-    g.lineWidth = 2.2 * dpr;
+    g.strokeStyle = '#9FD3CF';
+    g.lineWidth = 2 * dpr;
     g.lineJoin = 'round';
     g.stroke();
   }
@@ -447,7 +450,7 @@
     if (!s) return show('setup');
     s.borgPost = Number($('#borgPost').value);
     $('#sumDur').textContent = fmt(s.elapsed);
-    $('#sumRate').textContent = s.rate ? s.rate.toFixed(1) + ' /' + t('minUnit') : '—';
+    $('#sumRate').textContent = s.rate ? s.rate.toFixed(1) : '—';
     $('#sumReg').textContent = s.reg !== null ? Math.round(s.reg * 100) + '%' : '—';
     $('#sumAdh').textContent = s.adh !== null ? Math.round(s.adh * 100) + '%' : '—';
     $('#sumBorg').textContent = s.borgPre + ' → ' + s.borgPost;
@@ -557,9 +560,9 @@
     const X = (i) => L + (list.length === 1 ? (w - L - R) / 2 : i * (w - L - R) / (list.length - 1));
     const Y = (v) => T + (hi - v) * (h - T - B) / (hi - lo);
 
-    g.font = (12 * dpr) + 'px "PT Sans", Arial';
-    g.fillStyle = '#5B6E82';
-    g.strokeStyle = '#E3D2AA';
+    g.font = (12 * dpr) + 'px "Golos Text", Arial';
+    g.fillStyle = '#4C5C6C';
+    g.strokeStyle = '#E4E9EE';
     g.lineWidth = dpr;
     const step = Math.max(1, Math.round((hi - lo) / 4));
     for (let v = lo; v <= hi; v += step) {
@@ -571,8 +574,8 @@
     }
 
     const grad = g.createLinearGradient(0, T, 0, h - B);
-    grad.addColorStop(0, 'rgba(61,86,112,0.22)');
-    grad.addColorStop(1, 'rgba(61,86,112,0)');
+    grad.addColorStop(0, 'rgba(69,91,114,0.16)');
+    grad.addColorStop(1, 'rgba(69,91,114,0)');
     g.beginPath();
     list.forEach((s, i) => { if (i === 0) g.moveTo(X(i), Y(s.rate)); else g.lineTo(X(i), Y(s.rate)); });
     g.lineTo(X(list.length - 1), h - B);
@@ -583,32 +586,32 @@
 
     if (norm) {
       g.setLineDash([6 * dpr, 6 * dpr]);
-      g.strokeStyle = '#A4533F';
-      g.lineWidth = 1.5 * dpr;
+      g.strokeStyle = '#B4533A';
+      g.lineWidth = 1.2 * dpr;
       g.beginPath();
       g.moveTo(L, Y(norm));
       g.lineTo(w - R, Y(norm));
       g.stroke();
       g.setLineDash([]);
-      g.fillStyle = '#A4533F';
+      g.fillStyle = '#B4533A';
       const lab = t('norm').split(',')[0];
       g.fillText(lab, w - R - g.measureText(lab).width, Y(norm) - 6 * dpr);
     }
 
-    g.strokeStyle = '#3D5670';
-    g.lineWidth = 2.6 * dpr;
+    g.strokeStyle = '#455B72';
+    g.lineWidth = 2.2 * dpr;
     g.lineJoin = 'round';
     g.beginPath();
     list.forEach((s, i) => { if (i === 0) g.moveTo(X(i), Y(s.rate)); else g.lineTo(X(i), Y(s.rate)); });
     g.stroke();
     list.forEach((s, i) => {
       g.beginPath();
-      g.arc(X(i), Y(s.rate), 4.5 * dpr, 0, Math.PI * 2);
-      g.fillStyle = i === list.length - 1 ? '#A4533F' : '#3D5670';
+      g.arc(X(i), Y(s.rate), 3.5 * dpr, 0, Math.PI * 2);
+      g.fillStyle = i === list.length - 1 ? '#18222D' : '#455B72';
       g.fill();
     });
 
-    g.fillStyle = '#5B6E82';
+    g.fillStyle = '#4C5C6C';
     list.forEach((s, i) => {
       if (list.length > 8 && i % 2 && i !== list.length - 1) return;
       const lab = dm(new Date(s.date));
@@ -660,25 +663,62 @@
     setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
   }
 
-  function heroPhase() {
-    const el = $('.auto-phase');
-    if (!el) return;
-    const step = () => {
-      const s = (performance.now() / 1000) % 10;
-      el.textContent = (s < 4 ? t('inhale') : t('exhale')).toLowerCase();
+  function heroTrace() {
+    const cv = $('#heroTrace');
+    const ph = $('#heroPhase');
+    if (!cv) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const vol = (s) => {
+      const c = ((s % 10) + 10) % 10;
+      return c < 4 ? ease(c / 4) : 1 - ease((c - 4) / 6);
     };
-    step();
-    setInterval(step, 250);
+    const span = 30;
+    const draw = (now) => {
+      const dpr = window.devicePixelRatio || 1;
+      const w = Math.round(cv.clientWidth * dpr);
+      const h = Math.round(cv.clientHeight * dpr);
+      if (!w || !h) return;
+      if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; }
+      const g = cv.getContext('2d');
+      g.clearRect(0, 0, w, h);
+      g.strokeStyle = 'rgba(159,211,207,0.08)';
+      g.lineWidth = dpr;
+      for (let i = 1; i < 6; i++) { g.beginPath(); g.moveTo(0, h * i / 6); g.lineTo(w, h * i / 6); g.stroke(); }
+      for (let i = 1; i < 15; i++) { g.beginPath(); g.moveTo(w * i / 15, 0); g.lineTo(w * i / 15, h); g.stroke(); }
+      const tNow = reduce ? 9 : now / 1000;
+      const headX = w * 0.82;
+      const pad = h * 0.16;
+      const Y = (v) => h - pad - v * (h - 2 * pad);
+      g.beginPath();
+      for (let x = 0; x <= headX; x += 2 * dpr) {
+        const s = tNow - (headX - x) / headX * span * 0.82;
+        const v = vol(s) + 0.015 * Math.sin(s * 9);
+        if (x === 0) g.moveTo(x, Y(v)); else g.lineTo(x, Y(v));
+      }
+      g.strokeStyle = '#9FD3CF';
+      g.lineWidth = 2.2 * dpr;
+      g.lineJoin = 'round';
+      g.stroke();
+      const hv = vol(tNow);
+      g.fillStyle = '#E9B064';
+      g.beginPath();
+      g.arc(headX, Y(hv), 4.5 * dpr, 0, Math.PI * 2);
+      g.fill();
+      g.strokeStyle = 'rgba(233,176,100,0.35)';
+      g.beginPath();
+      g.moveTo(headX, 0);
+      g.lineTo(headX, h);
+      g.stroke();
+      const c = ((tNow % 10) + 10) % 10;
+      if (ph) ph.textContent = c < 4 ? t('inhale') : t('exhale');
+      if (!reduce) requestAnimationFrame(draw);
+    };
+    requestAnimationFrame(draw);
   }
 
   function inlineLungs() {
-    const sym = document.getElementById('lungs');
-    if (!sym) return;
-    $$('svg.lungs').forEach((svg) => {
-      const use = svg.querySelector('use');
-      if (!use) return;
-      svg.innerHTML = sym.innerHTML;
-    });
+    const tpl = document.getElementById('lungsTpl');
+    if (tpl) $('#sLungs').innerHTML = tpl.content.querySelector('svg').innerHTML;
   }
 
   function init() {
@@ -736,7 +776,7 @@
     });
 
     applyLang();
-    heroPhase();
+    heroTrace();
     const params = new URLSearchParams(location.search);
     if (params.get('screen') === 'report') show('report');
     else show('setup');

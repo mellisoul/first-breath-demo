@@ -3,281 +3,264 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F3E9D2">
+<meta name="theme-color" content="#16212D">
 <meta name="description" content="First Breath — ИИ-помощник дыхательной реабилитации дома. Команда TYNYS, AI-Sana Startup Challenge 2026.">
 <title>First Breath — дыхательная реабилитация дома</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Oranienbaum&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23455B72'/%3E%3Cpath d='M28 18v26c0 6-12 6-12-6 0-10 5-20 12-20zM36 18v26c0 6 12 6 12-6 0-10-5-20-12-20z' fill='%23F3E9D2'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2316212D'/%3E%3Cpath d='M6 36 C14 36 16 20 24 20 S34 46 42 46 S52 30 58 30' fill='none' stroke='%239FD3CF' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-38)">
-      <line x1="0" y1="0" x2="0" y2="7" stroke="#3D5670" stroke-width="1.1" stroke-opacity=".45"/>
-    </pattern>
-    <pattern id="hatchLight" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-38)">
-      <line x1="0" y1="0" x2="0" y2="6" stroke="#F3E9D2" stroke-width="1" stroke-opacity=".35"/>
-    </pattern>
-    <radialGradient id="wash" cx="50%" cy="45%" r="60%">
-      <stop offset="0" stop-color="#8FA7BD" stop-opacity=".55"/>
-      <stop offset=".7" stop-color="#7F9AB2" stop-opacity=".25"/>
-      <stop offset="1" stop-color="#7F9AB2" stop-opacity="0"/>
-    </radialGradient>
-    <symbol id="lungs" viewBox="0 0 400 470">
-      <g class="lobes">
-        <path class="lobe-fill" d="M165 150 C110 160 70 230 62 320 C58 390 80 440 140 450 C175 455 190 430 192 400 L192 210 C192 180 185 155 165 150 Z"/>
-        <path class="lobe-fill" d="M235 150 C290 160 330 230 338 320 C342 390 320 440 260 450 C225 455 208 430 208 400 L208 210 C208 180 215 155 235 150 Z"/>
-        <path class="lobe-hatch" d="M165 150 C110 160 70 230 62 320 C58 390 80 440 140 450 C175 455 190 430 192 400 L192 210 C192 180 185 155 165 150 Z"/>
-        <path class="lobe-hatch" d="M235 150 C290 160 330 230 338 320 C342 390 320 440 260 450 C225 455 208 430 208 400 L208 210 C208 180 215 155 235 150 Z"/>
-        <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M165 150 C110 160 70 230 62 320 C58 390 80 440 140 450 C175 455 190 430 192 400 L192 210 C192 180 185 155 165 150 Z" stroke-width="2.6"/>
-          <path d="M235 150 C290 160 330 230 338 320 C342 390 320 440 260 450 C225 455 208 430 208 400 L208 210 C208 180 215 155 235 150 Z" stroke-width="2.6"/>
-          <path d="M66 300 C105 285 150 290 192 262 M334 300 C295 285 250 290 208 262 M92 215 C125 225 160 215 192 195 M308 215 C275 225 240 215 208 195" stroke-width="1.4"/>
-          <path d="M68 340 L88 334 M66 360 L90 352 M68 380 L94 370 M74 402 L100 390 M86 424 L112 410 M332 340 L312 334 M334 360 L310 352 M332 380 L306 370 M326 402 L300 390 M314 424 L288 410" stroke-width="1.1"/>
-          <path d="M146 206 C130 222 116 236 104 254 M146 206 C146 230 142 250 134 270 M104 254 C92 262 84 274 80 290 M104 254 C108 270 104 284 98 298 M134 270 C124 282 120 296 120 312 M134 270 C142 286 144 302 140 318 M120 312 C112 322 108 334 108 346 M140 318 C148 330 150 344 146 358 M254 206 C270 222 284 236 296 254 M254 206 C254 230 258 250 266 270 M296 254 C308 262 316 274 320 290 M296 254 C292 270 296 284 302 298 M266 270 C276 282 280 296 280 312 M266 270 C258 286 256 302 260 318 M280 312 C288 322 292 334 292 346 M260 318 C252 330 250 344 254 358" stroke-width="2"/>
-        </g>
-        <g class="alv">
-          <circle cx="80" cy="290" r="5"/><circle cx="98" cy="298" r="5"/><circle cx="108" cy="346" r="5"/><circle cx="146" cy="358" r="5"/><circle cx="120" cy="312" r="4"/>
-          <circle cx="320" cy="290" r="5"/><circle cx="302" cy="298" r="5"/><circle cx="292" cy="346" r="5"/><circle cx="254" cy="358" r="5"/><circle cx="280" cy="312" r="4"/>
-        </g>
-      </g>
-      <g class="ink airway" fill="none" stroke-linecap="round">
-        <path d="M190 18 L190 158 M210 18 L210 158" stroke-width="2.8"/>
-        <path d="M190 28 Q200 33 210 28 M190 40 Q200 45 210 40 M190 52 Q200 57 210 52 M190 64 Q200 69 210 64 M190 76 Q200 81 210 76 M190 88 Q200 93 210 88 M190 100 Q200 105 210 100 M190 112 Q200 117 210 112 M190 124 Q200 129 210 124 M190 136 Q200 141 210 136 M190 148 Q200 153 210 148" stroke-width="1.4"/>
-        <path d="M193 158 C183 172 168 186 146 206 M207 158 C217 172 232 186 254 206" stroke-width="3.2"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
-<div class="paper" aria-hidden="true"></div>
-<div class="washes" aria-hidden="true"><i></i><i></i><i></i></div>
+<template id="lungsTpl"><svg xmlns="http://www.w3.org/2000/svg">
+  <g class="lobes">
+    <path class="lobe" d="M165 150 C110 160 70 230 62 320 C58 390 80 440 140 450 C175 455 190 430 192 400 L192 210 C192 180 185 155 165 150 Z"/>
+    <path class="lobe" d="M235 150 C290 160 330 230 338 320 C342 390 320 440 260 450 C225 455 208 430 208 400 L208 210 C208 180 215 155 235 150 Z"/>
+    <path class="tree" d="M146 206 C130 222 116 236 104 254 M146 206 C146 230 142 250 134 270 M104 254 C92 262 84 274 80 290 M104 254 C108 270 104 284 98 298 M134 270 C124 282 120 296 120 312 M134 270 C142 286 144 302 140 318 M254 206 C270 222 284 236 296 254 M254 206 C254 230 258 250 266 270 M296 254 C308 262 316 274 320 290 M296 254 C292 270 296 284 302 298 M266 270 C276 282 280 296 280 312 M266 270 C258 286 256 302 260 318"/>
+  </g>
+  <path class="airway" d="M193 30 L193 158 C183 172 168 186 146 206 M207 30 L207 158 C217 172 232 186 254 206"/>
+</svg></template>
 
 <header class="nav">
-  <a class="wordmark" href="#top">First Breath</a>
+  <a class="brand" href="#top" aria-label="First Breath">
+    <svg viewBox="0 0 64 32" aria-hidden="true"><path d="M2 18 C10 18 12 6 20 6 S30 28 38 28 S50 14 62 14"/></svg>
+    <span>First Breath</span>
+  </a>
   <nav class="links">
     <a href="#problem" data-i18n="navProblem"></a>
     <a href="#how" data-i18n="navHow"></a>
+    <a href="#app" data-i18n="navApp"></a>
     <a href="#team" data-i18n="navTeam"></a>
   </nav>
-  <div class="nav-right">
-    <div class="lang" role="group" aria-label="Язык">
-      <button type="button" data-lang="ru" class="on">RU</button>
-      <button type="button" data-lang="kk">KZ</button>
-    </div>
-    <a class="btn small primary" href="#app" data-i18n="navApp"></a>
+  <div class="lang" role="group" aria-label="Язык">
+    <button type="button" data-lang="ru" class="on">RU</button>
+    <button type="button" data-lang="kk">KZ</button>
   </div>
 </header>
 
 <main id="top">
   <section class="hero">
-    <div class="hero-text">
-      <p class="eyebrow">AI-Sana Startup Challenge 2026 · <span data-i18n="team"></span> TYNYS</p>
-      <h1 class="display">First<br>Breath</h1>
-      <p class="lede" data-i18n="tagline"></p>
-      <p class="hero-body" data-i18n="heroBody"></p>
-      <div class="hero-cta">
-        <a class="btn primary" href="#app" data-i18n="ctaStart"></a>
-        <a class="btn ghost" href="#how" data-i18n="ctaHow"></a>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1 data-i18n="heroTitle"></h1>
+        <p class="hero-sub" data-i18n="heroBody"></p>
+        <div class="hero-cta">
+          <a class="btn accent" href="#app" data-i18n="ctaStart"></a>
+          <a class="btn line-light" href="#how" data-i18n="ctaHow"></a>
+        </div>
       </div>
-      <ul class="hero-facts">
-        <li><b data-i18n="factMic"></b><span data-i18n="factMicD"></span></li>
-        <li><b>RU · KZ</b><span data-i18n="factLangD"></span></li>
-        <li><b data-i18n="factDoc"></b><span data-i18n="factDocD"></span></li>
-      </ul>
+      <div class="monitor" aria-label="Пример кривой дыхания">
+        <div class="mon-head">
+          <span data-i18n="monTitle"></span>
+          <span class="mon-ex" data-i18n="ex_diaphragm"></span>
+        </div>
+        <div class="mon-body">
+          <canvas id="heroTrace" width="1200" height="360"></canvas>
+          <dl class="mon-read">
+            <div><dt data-i18n="readRate"></dt><dd><b>6</b><small>/мин</small></dd></div>
+            <div><dt data-i18n="readPhase"></dt><dd><b id="heroPhase"></b></dd></div>
+            <div><dt data-i18n="readPattern"></dt><dd><b>4 : 6</b><small data-i18n="sec"></small></dd></div>
+          </dl>
+        </div>
+      </div>
     </div>
-    <figure class="plate hero-plate">
-      <span class="plate-no" data-i18n="plate1"></span>
-      <div class="plate-art">
-        <svg class="wash-bg" viewBox="0 0 400 470" aria-hidden="true"><ellipse cx="200" cy="290" rx="190" ry="190" fill="url(#wash)"/></svg>
-        <svg class="lungs breathe-auto" viewBox="0 0 400 470" role="img" aria-label="Гравюра лёгких"><use href="#lungs"/></svg>
-        <span class="anno a1"><i></i><em data-i18n="annoTrachea"></em></span>
-        <span class="anno a2"><i></i><em data-i18n="annoBronchi"></em></span>
-        <span class="anno a3"><i></i><em data-i18n="annoAlv"></em></span>
-      </div>
-      <figcaption><span data-i18n="plateCap"></span> <b class="auto-phase"></b></figcaption>
-    </figure>
+    <ul class="facts">
+      <li><b data-i18n="factMic"></b><span data-i18n="factMicD"></span></li>
+      <li><b data-i18n="factLang"></b><span data-i18n="factLangD"></span></li>
+      <li><b data-i18n="factDoc"></b><span data-i18n="factDocD"></span></li>
+    </ul>
   </section>
 
-  <section class="band" id="problem">
-    <div class="sec-head">
-      <span class="roman">I</span>
-      <h2 class="h-sec" data-i18n="problemTitle"></h2>
-      <p class="sec-lede" data-i18n="problemLede"></p>
+  <section class="sec" id="problem">
+    <div class="sec-intro">
+      <h2 data-i18n="problemTitle"></h2>
+      <p data-i18n="problemLede"></p>
     </div>
-    <div class="stats3">
-      <div><b>0,4%</b><p data-i18n="stat1"></p><small>CORE, 2018</small></div>
-      <div><b>12%</b><p data-i18n="stat2"></p><small>Vinnikov et al., BMC Pulm Med, 2023</small></div>
-      <div><b>4%</b><p data-i18n="stat3"></p><small>Vinnikov et al., BMC Pulm Med, 2023</small></div>
+    <div class="nums">
+      <figure><b>0,4%</b><figcaption><span data-i18n="stat1"></span><cite>CORE, 2018</cite></figcaption></figure>
+      <figure><b>12%</b><figcaption><span data-i18n="stat2"></span><cite>Vinnikov et al., BMC Pulm Med, 2023</cite></figcaption></figure>
+      <figure><b>4%</b><figcaption><span data-i18n="stat3"></span><cite>Vinnikov et al., BMC Pulm Med, 2023</cite></figcaption></figure>
     </div>
   </section>
 
-  <section class="band" id="how">
-    <div class="sec-head">
-      <span class="roman">II</span>
-      <h2 class="h-sec" data-i18n="howTitle"></h2>
+  <section class="sec" id="how">
+    <div class="sec-intro">
+      <h2 data-i18n="howTitle"></h2>
+      <p data-i18n="howLede"></p>
     </div>
-    <ol class="steps4">
-      <li><span>I</span><h3 data-i18n="how1"></h3><p data-i18n="how1d"></p></li>
-      <li><span>II</span><h3 data-i18n="how2"></h3><p data-i18n="how2d"></p></li>
-      <li><span>III</span><h3 data-i18n="how3"></h3><p data-i18n="how3d"></p></li>
-      <li><span>IV</span><h3 data-i18n="how4"></h3><p data-i18n="how4d"></p></li>
+    <ol class="flow">
+      <li><h3 data-i18n="how1"></h3><p data-i18n="how1d"></p></li>
+      <li><h3 data-i18n="how2"></h3><p data-i18n="how2d"></p></li>
+      <li><h3 data-i18n="how3"></h3><p data-i18n="how3d"></p></li>
+      <li><h3 data-i18n="how4"></h3><p data-i18n="how4d"></p></li>
     </ol>
   </section>
 
-  <section class="band app-band" id="app">
-    <div class="sec-head">
-      <span class="roman">III</span>
-      <h2 class="h-sec" data-i18n="appTitle"></h2>
-      <p class="sec-lede" data-i18n="appLede"></p>
-    </div>
-
-    <div class="device">
-      <div class="device-top">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <b>First Breath</b>
-        <button type="button" class="tab-btn" data-go="setup" data-i18n="tabSession"></button>
+  <section class="sec app" id="app">
+    <div class="app-head">
+      <div>
+        <h2 data-i18n="appTitle"></h2>
+        <p data-i18n="appLede"></p>
+      </div>
+      <div class="tabs" role="tablist">
+        <button type="button" class="tab-btn on" data-go="setup" data-i18n="tabSession"></button>
         <button type="button" class="tab-btn" data-go="report" data-i18n="tabReport"></button>
       </div>
+    </div>
 
+    <div class="work">
       <div class="screen active" id="setup">
-        <div class="week" id="week"></div>
-        <label class="field">
-          <span data-i18n="patient"></span>
-          <input id="patient" type="text" autocomplete="off" data-i18n-ph="patientPh">
-        </label>
-        <h3 class="h-small" data-i18n="chooseEx"></h3>
-        <div class="choices" id="exList"></div>
-        <div class="row2">
-          <div>
-            <h3 class="h-small" data-i18n="duration"></h3>
-            <div class="seg" id="durList">
-              <button type="button" data-min="1">1</button>
-              <button type="button" data-min="3" class="on">3</button>
-              <button type="button" data-min="5">5</button>
+        <div class="setup-grid">
+          <div class="panel">
+            <h3 class="ph" data-i18n="chooseEx"></h3>
+            <div class="choices" id="exList"></div>
+            <div class="row2">
+              <div>
+                <h3 class="ph" data-i18n="duration"></h3>
+                <div class="seg" id="durList">
+                  <button type="button" data-min="1">1</button>
+                  <button type="button" data-min="3" class="on">3</button>
+                  <button type="button" data-min="5">5</button>
+                </div>
+              </div>
+              <div>
+                <h3 class="ph" data-i18n="sound"></h3>
+                <div class="seg" id="soundSeg">
+                  <button type="button" data-sound="1" class="on" data-i18n="on"></button>
+                  <button type="button" data-sound="0" data-i18n="off"></button>
+                </div>
+              </div>
             </div>
           </div>
-          <div>
-            <h3 class="h-small" data-i18n="sound"></h3>
-            <div class="seg" id="soundSeg">
-              <button type="button" data-sound="1" class="on" data-i18n="on"></button>
-              <button type="button" data-sound="0" data-i18n="off"></button>
+          <div class="panel">
+            <label class="field">
+              <span class="ph" data-i18n="patient"></span>
+              <input id="patient" type="text" autocomplete="off" data-i18n-ph="patientPh">
+            </label>
+            <div class="borg">
+              <div class="borg-top"><h3 class="ph" data-i18n="borgPre"></h3><output id="borgPreLab"></output></div>
+              <input type="range" min="0" max="10" step="1" value="2" id="borgPre" aria-describedby="borgPreLab">
+              <div class="ticks" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
             </div>
+            <div class="week-wrap">
+              <h3 class="ph" data-i18n="weekTitle"></h3>
+              <div class="week" id="week"></div>
+            </div>
+            <div class="actions">
+              <button type="button" class="btn primary" id="startMic" data-i18n="startMic"></button>
+              <button type="button" class="btn line" id="startSim" data-i18n="startSim"></button>
+            </div>
+            <p class="hint-small" data-i18n="micTip"></p>
           </div>
         </div>
-        <div class="borg" data-borg="pre">
-          <h3 class="h-small" data-i18n="borgPre"></h3>
-          <input type="range" min="0" max="10" step="1" value="2" id="borgPre" aria-describedby="borgPreLab">
-          <div class="borg-scale"><span>0</span><span>5</span><span>10</span></div>
-          <p class="borg-lab" id="borgPreLab"></p>
-        </div>
-        <div class="actions">
-          <button type="button" class="btn primary" id="startMic" data-i18n="startMic"></button>
-          <button type="button" class="btn ghost" id="startSim" data-i18n="startSim"></button>
-        </div>
-        <p class="hint-small" data-i18n="micTip"></p>
       </div>
 
       <div class="screen" id="session">
-        <div class="sess-top">
-          <span class="badge" id="simBadge" data-i18n="simBadge" hidden></span>
-          <span id="exName"></span>
-          <span class="timer" id="timer">0:00</span>
+        <div class="monitor big">
+          <div class="mon-head">
+            <span id="exName"></span>
+            <span class="sim-flag" id="simBadge" data-i18n="simBadge" hidden></span>
+            <span class="timer" id="timer">0:00</span>
+          </div>
+          <div class="progress"><i id="prog"></i></div>
+          <div class="sess-grid">
+            <div class="pacer">
+              <svg class="ring" viewBox="0 0 300 300" aria-hidden="true">
+                <circle cx="150" cy="150" r="140" class="ring-bg"/>
+                <circle cx="150" cy="150" r="140" class="ring-fg" id="ring"/>
+              </svg>
+              <svg class="lungs" id="sLungs" viewBox="0 0 400 470" aria-hidden="true"></svg>
+              <div class="count" id="count" hidden></div>
+              <div class="phase"><strong id="phaseText"></strong><span id="phaseCount"></span></div>
+            </div>
+            <div class="sess-data">
+              <div class="trace-head"><span data-i18n="traceTitle"></span><span class="hear" id="hear"><i></i><span></span></span></div>
+              <canvas id="wave" width="900" height="260" aria-label="Кривая дыхания"></canvas>
+              <dl class="mon-read row">
+                <div><dt data-i18n="rate"></dt><dd><b id="rate">—</b><small>/мин</small></dd></div>
+                <div><dt data-i18n="regularity"></dt><dd><b id="reg">—</b></dd></div>
+                <div><dt data-i18n="exhaleOk"></dt><dd><b id="adh">—</b></dd></div>
+              </dl>
+              <div class="hint" id="aiHint"><span data-i18n="aiLabel"></span><p id="hintText"></p></div>
+              <button type="button" class="btn line-light" id="stop" data-i18n="finish"></button>
+            </div>
+          </div>
         </div>
-        <div class="progress"><i id="prog"></i></div>
-        <div class="pacer-wrap">
-          <svg class="ring" viewBox="0 0 300 300" aria-hidden="true">
-            <circle cx="150" cy="150" r="140" class="ring-bg"/>
-            <circle cx="150" cy="150" r="140" class="ring-fg" id="ring"/>
-          </svg>
-          <svg class="lungs session-lungs" id="sLungs" viewBox="0 0 400 470" aria-hidden="true"><use href="#lungs"/></svg>
-          <div class="count" id="count" hidden></div>
-        </div>
-        <div class="phase">
-          <strong id="phaseText"></strong>
-          <span id="phaseCount"></span>
-        </div>
-        <div class="hear" id="hear"><i></i><span></span></div>
-        <canvas id="wave" width="900" height="220" aria-label="Кривая дыхания"></canvas>
-        <div class="stats">
-          <div><b id="rate">—</b><small data-i18n="rate"></small></div>
-          <div><b id="reg">—</b><small data-i18n="regularity"></small></div>
-          <div><b id="adh">—</b><small data-i18n="exhaleOk"></small></div>
-        </div>
-        <div class="ai-hint" id="aiHint"><span data-i18n="aiLabel"></span><p id="hintText"></p></div>
-        <button type="button" class="btn light" id="stop" data-i18n="finish"></button>
       </div>
 
       <div class="screen" id="post">
-        <h3 class="h-mid" data-i18n="borgPost"></h3>
-        <div class="borg" data-borg="post">
-          <input type="range" min="0" max="10" step="1" value="2" id="borgPost" aria-describedby="borgPostLab">
-          <div class="borg-scale"><span>0</span><span>5</span><span>10</span></div>
-          <p class="borg-lab" id="borgPostLab"></p>
+        <div class="panel narrow">
+          <h3 class="title-m" data-i18n="borgPost"></h3>
+          <div class="borg">
+            <div class="borg-top"><span></span><output id="borgPostLab"></output></div>
+            <input type="range" min="0" max="10" step="1" value="2" id="borgPost" aria-describedby="borgPostLab">
+            <div class="ticks" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+          </div>
+          <button type="button" class="btn primary wide" id="toSummary" data-i18n="seeSummary"></button>
         </div>
-        <button type="button" class="btn primary wide" id="toSummary" data-i18n="seeSummary"></button>
       </div>
 
       <div class="screen" id="summary">
-        <p class="kicker" data-i18n="summary"></p>
-        <div class="big">
-          <b id="sumReg">—</b><span data-i18n="regularity"></span>
-        </div>
-        <dl class="kv">
-          <div><dt data-i18n="duration"></dt><dd id="sumDur"></dd></div>
-          <div><dt data-i18n="avgRate"></dt><dd id="sumRate"></dd></div>
-          <div><dt data-i18n="exhaleOk"></dt><dd id="sumAdh"></dd></div>
-          <div><dt data-i18n="borgShort"></dt><dd id="sumBorg"></dd></div>
-        </dl>
-        <div class="ai-hint dark"><span data-i18n="nextSession"></span><p id="sumNext"></p></div>
-        <div class="actions">
-          <button type="button" class="btn primary" data-go="report" data-i18n="openReport"></button>
-          <button type="button" class="btn ghost" data-go="setup" data-i18n="again"></button>
+        <div class="panel narrow">
+          <h3 class="title-m" data-i18n="summary"></h3>
+          <div class="sum-top">
+            <div><b id="sumReg">—</b><span data-i18n="regularity"></span></div>
+            <div><b id="sumRate">—</b><span data-i18n="avgRate"></span></div>
+          </div>
+          <dl class="kv">
+            <div><dt data-i18n="duration"></dt><dd id="sumDur"></dd></div>
+            <div><dt data-i18n="exhaleOk"></dt><dd id="sumAdh"></dd></div>
+            <div><dt data-i18n="borgShort"></dt><dd id="sumBorg"></dd></div>
+          </dl>
+          <div class="hint light"><span data-i18n="nextSession"></span><p id="sumNext"></p></div>
+          <div class="actions two">
+            <button type="button" class="btn primary" data-go="report" data-i18n="openReport"></button>
+            <button type="button" class="btn line" data-go="setup" data-i18n="again"></button>
+          </div>
         </div>
       </div>
 
       <div class="screen" id="report">
-        <div class="card-head">
-          <div>
-            <p class="kicker" data-i18n="report"></p>
-            <p class="patient-line" id="repPatient"></p>
-          </div>
-          <div class="seal" aria-hidden="true"><span>TYNYS</span><b>FB</b></div>
-        </div>
-        <div class="cards">
-          <div><b id="repCount">0</b><small data-i18n="sessions7"></small></div>
-          <div><b id="repNorm">—</b><small data-i18n="norm"></small></div>
-          <div><b id="repLast">—</b><small data-i18n="lastRate"></small></div>
-          <div><b id="repBorg">—</b><small data-i18n="borgAvg"></small></div>
-        </div>
-        <div class="flag" id="repFlag"></div>
-        <h3 class="h-small" data-i18n="trend"></h3>
-        <canvas id="trend" width="900" height="360" aria-label="Динамика"></canvas>
-        <table class="tbl">
-          <thead><tr><th data-i18n="date"></th><th data-i18n="exercise"></th><th data-i18n="min"></th><th data-i18n="rateShort"></th><th data-i18n="regShort"></th><th data-i18n="borgCol"></th></tr></thead>
-          <tbody id="repRows"></tbody>
-        </table>
-        <p class="empty" id="repEmpty" data-i18n="empty"></p>
-        <div class="actions no-print">
+        <article class="sheet">
+          <header class="sheet-head">
+            <div>
+              <h3 data-i18n="report"></h3>
+              <p id="repPatient"></p>
+            </div>
+            <p class="sheet-src">First Breath<br><span data-i18n="sheetSrc"></span></p>
+          </header>
+          <dl class="sheet-kpi">
+            <div><dt data-i18n="sessions7"></dt><dd id="repCount">0</dd></div>
+            <div><dt data-i18n="norm"></dt><dd id="repNorm">—</dd></div>
+            <div><dt data-i18n="lastRate"></dt><dd id="repLast">—</dd></div>
+            <div><dt data-i18n="borgAvg"></dt><dd id="repBorg">—</dd></div>
+          </dl>
+          <p class="flag" id="repFlag"></p>
+          <h4 data-i18n="trend"></h4>
+          <canvas id="trend" width="900" height="300" aria-label="Динамика"></canvas>
+          <table class="tbl">
+            <thead><tr><th data-i18n="date"></th><th data-i18n="exercise"></th><th data-i18n="min"></th><th data-i18n="rateShort"></th><th data-i18n="regShort"></th><th data-i18n="borgCol"></th></tr></thead>
+            <tbody id="repRows"></tbody>
+          </table>
+          <p class="empty" id="repEmpty" data-i18n="empty"></p>
+          <p class="sheet-note" data-i18n="disclaimer"></p>
+        </article>
+        <div class="sheet-actions no-print">
           <button type="button" class="btn primary" id="print" data-i18n="savePdf"></button>
-          <div class="row-btns">
-            <button type="button" class="btn ghost" id="csv">CSV</button>
-            <button type="button" class="btn ghost" id="seed" data-i18n="seed"></button>
-          </div>
-          <button type="button" class="btn link" id="clear" data-i18n="clear"></button>
+          <button type="button" class="btn line" id="csv" data-i18n="csv"></button>
+          <button type="button" class="btn line" id="seed" data-i18n="seed"></button>
+          <button type="button" class="btn text" id="clear" data-i18n="clear"></button>
         </div>
       </div>
     </div>
     <p class="note" data-i18n="disclaimer"></p>
   </section>
 
-  <section class="band" id="team">
-    <div class="sec-head">
-      <span class="roman">IV</span>
-      <h2 class="h-sec" data-i18n="teamTitle"></h2>
+  <section class="sec" id="team">
+    <div class="sec-intro">
+      <h2 data-i18n="teamTitle"></h2>
+      <p data-i18n="teamLede"></p>
     </div>
     <ul class="team">
       <li><b>Имашова Дариға</b><span data-i18n="roleLead"></span></li>
@@ -290,7 +273,7 @@
 </main>
 
 <footer class="foot">
-  <span class="wordmark small">First Breath</span>
+  <span>First Breath</span>
   <span data-i18n="footer"></span>
 </footer>
 
